@@ -10,7 +10,8 @@ copyright = 'example site'
 [params]
   description = 'a minimal, dark-themed hugo blog'
   author = 'claude noir'
-  
+  siteImage = 'images/avatar.svg'
+
   showMetaIcons = true
 #  showPostStats = true
   showHugoThemeCredit = true
