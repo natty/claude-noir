@@ -1,0 +1,51 @@
+<footer class="site-footer">
+    {{- $hasSocial := .Site.Params.social }}
+    {{- $hasCopyright := .Site.Copyright }}
+    {{- $hasCredit := .Site.Params.showHugoThemeCredit }}
+    {{- $position := .Site.Params.socialPosition | default "right" }}
+    {{- $hasFooterText := or $hasCopyright $hasCredit }}
+    
+    {{- if or $hasSocial $hasFooterText }}
+    <div class="footer-content footer-{{ $position }}">
+        {{- if eq $position "above" }}
+            {{- if $hasSocial }}
+            <div class="social-links-row">
+                {{- partial "social-icons.html" . }}
+            </div>
+            {{- end }}
+            {{- if $hasFooterText }}
+            <div class="footer-text-row">
+                {{- partial "footer-text.html" . }}
+            </div>
+            {{- end }}
+        {{- else if eq $position "below" }}
+            {{- if $hasFooterText }}
+            <div class="footer-text-row">
+                {{- partial "footer-text.html" . }}
+            </div>
+            {{- end }}
+            {{- if $hasSocial }}
+            <div class="social-links-row">
+                {{- partial "social-icons.html" . }}
+            </div>
+            {{- end }}
+        {{- else if eq $position "left" }}
+            {{- if $hasSocial }}
+            <span class="social-links">
+                {{- partial "social-icons.html" . }}
+            </span>
+            {{- if $hasFooterText }} <span class="separator">|</span> {{ end }}
+            {{- end }}
+            {{- partial "footer-text.html" . }}
+        {{- else }}{{/* right (default) */}}
+            {{- partial "footer-text.html" . }}
+            {{- if $hasSocial }}
+            {{- if $hasFooterText }} <span class="separator">|</span> {{ end }}
+            <span class="social-links">
+                {{- partial "social-icons.html" . }}
+            </span>
+            {{- end }}
+        {{- end }}
+    </div>
+    {{- end }}
+</footer>

@@ -1,0 +1,12 @@
+# Theme metadata
+name = "claude noir"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "a minimal, dark-themed hugo blog theme focused on clean typography and readability. no javascript required."
+tags = ["minimal", "blog", "responsive", "fast", "simple", "clean", "dark"]
+features = ["minimal", "no-javascript", "responsive", "fast", "dark-theme", "series", "social-icons"]
+min_version = "0.112.0"
+
+[author]
+  name = "natty"
+  homepage = ""

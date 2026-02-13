@@ -1,0 +1,39 @@
+baseURL = 'https://example.com/'
+languageCode = 'en-us'
+title = 'claude noir'
+theme = 'claude-noir'
+copyright = 'example site'
+
+[pagination]
+  pagerSize = 6
+
+[params]
+  description = 'a minimal, dark-themed hugo blog'
+  author = 'claude noir'
+  
+  showMetaIcons = true
+#  showPostStats = true
+  showHugoThemeCredit = true
+#  postTitlePrefix = '>'
+
+  [[params.social]]
+    name = 'bluesky'
+    url = 'https://bsky.app/'
+
+[menus]
+  [[menus.main]]
+    name = 'about'
+    url = '/about/'
+    weight = 1
+  [[menus.main]]
+    name = 'posts'
+    url = '/posts/'
+    weight = 2
+  [[menus.main]]
+    name = 'tags'
+    url = '/tags/'
+    weight = 3
+
+[taxonomies]
+  tag = 'tags'
+  series = 'series'

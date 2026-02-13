@@ -1,0 +1,6 @@
+{{- range $index, $social := .Site.Params.social }}
+    {{- if $index }} <span class="separator">|</span> {{ end }}
+    <a href="{{ $social.url }}" class="social-link" aria-label="{{ $social.name }}" {{ if not (hasPrefix $social.url "mailto:") }}target="_blank" rel="noopener noreferrer"{{ end }}>
+        {{- partial (printf "icons/%s.html" $social.name) . }}
+    </a>
+{{- end }}

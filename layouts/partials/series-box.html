@@ -1,0 +1,38 @@
+{{- with .Params.series }}
+{{- $seriesName := index . 0 }}
+{{- $currentPage := $ }}
+{{- $seriesPages := where $.Site.RegularPages ".Params.series" "intersect" (slice $seriesName) }}
+{{- $seriesPages = $seriesPages.ByDate }}
+{{- $currentIndex := 0 }}
+{{- range $i, $p := $seriesPages }}
+{{- if eq $p.Permalink $currentPage.Permalink }}
+{{- $currentIndex = $i }}
+{{- end }}
+{{- end }}
+<div class="series-box">
+    <div class="series-title">series: {{ $seriesName }}</div>
+    <ul class="series-list">
+    {{- range $i, $p := $seriesPages }}
+        {{- $isCurrent := eq $p.Permalink $currentPage.Permalink }}
+        {{- $num := add $i 1 }}
+        {{- $suffix := "" }}
+        {{- if $isCurrent }}
+            {{- $suffix = "(you are here)" }}
+        {{- else if eq $i (sub $currentIndex 1) }}
+            {{- $suffix = "← prev" }}
+        {{- else if eq $i (add $currentIndex 1) }}
+            {{- $suffix = "→ next" }}
+        {{- end }}
+        <li class="series-item{{ if $isCurrent }} series-current{{ end }}">
+            <span class="series-prefix">{{ if $isCurrent }}>{{ else }}&nbsp;{{ end }}</span><span class="series-num">{{ $num }}.</span>
+            {{ if $isCurrent }}
+                <span class="series-item-title">{{ $p.Title }}</span>
+            {{ else }}
+                <a href="{{ $p.Permalink }}" class="series-item-title">{{ $p.Title }}</a>
+            {{ end }}
+            {{ with $suffix }}<span class="series-suffix">{{ . }}</span>{{ end }}
+        </li>
+    {{- end }}
+    </ul>
+</div>
+{{- end }}

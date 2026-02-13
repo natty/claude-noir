@@ -1,0 +1,25 @@
+{{- $showIcons := .Site.Params.showMetaIcons | default false }}
+{{- $showStats := .Site.Params.showPostStats | default false }}
+{{- $page := . }}
+
+{{- if $showIcons }}<span class="post-meta-icon">{{- partial "icons/calendar.html" . -}}</span>{{ end }}
+<time class="post-date" datetime="{{ .Date.Format "2006-01-02" }}">
+    {{- .Date.Format "2006-01-02" -}}
+</time>
+{{- with .Params.tags }}
+<span class="post-meta-separator">|</span>
+{{- if $showIcons }}<span class="post-meta-icon">{{- partial "icons/tag.html" $page -}}</span>{{ end }}
+<span class="post-tags">
+    {{- range . }}
+    <a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="post-tag">#{{ . }}</a>
+    {{- end }}
+</span>
+{{- end }}
+{{- if $showStats }}
+<span class="post-meta-separator">|</span>
+{{- if $showIcons }}<span class="post-meta-icon">{{- partial "icons/clock.html" . -}}</span>{{ end }}
+<span class="post-stat">{{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}</span>
+<span class="post-meta-separator">|</span>
+{{- if $showIcons }}<span class="post-meta-icon">{{- partial "icons/type.html" . -}}</span>{{ end }}
+<span class="post-stat">{{ .WordCount }} words</span>
+{{- end }}

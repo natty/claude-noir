@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+<h2 class="page-title">posts</h2>
+
+{{- $style := .Site.Params.postsListStyle | default "flat" }}
+
+{{- if eq $style "flat" }}
+    {{- partial "posts-list-flat.html" . }}
+{{- else if eq $style "groupedByYear" }}
+    {{- partial "posts-list-year.html" . }}
+{{- else if eq $style "groupedByMonth" }}
+    {{- partial "posts-list-month.html" . }}
+{{- end }}
+
+{{ end }}

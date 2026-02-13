@@ -1,0 +1,8 @@
+<ul class="posts-list-flat">
+    {{- range (where .Site.RegularPages "Section" "posts") }}
+    <li class="posts-list-item">
+        <span class="posts-list-date">{{ .Date.Format "2006-01-02" }}</span>
+        <a href="{{ .Permalink }}" class="posts-list-link">{{ .Title }}</a>{{ if .Draft }} <span class="draft-indicator">[draft]</span>{{ end }}
+    </li>
+    {{- end }}
+</ul>

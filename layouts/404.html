@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+    {{- partial "head.html" . -}}
+</head>
+<body>
+    <div class="site-container">
+        {{- partial "header.html" . -}}
+        <main>
+            <div class="error-page">
+                <div class="error-code">404</div>
+                <div class="error-message">page not found :(</div>
+                <div class="error-links">
+                    <a href="{{ .Site.BaseURL }}">home</a>
+                    <a href="{{ "posts/" | relURL }}">all posts</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

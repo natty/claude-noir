@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<article class="page">
+    <header class="page-header">
+        <h1 class="page-title-single">{{ .Title }}</h1>
+    </header>
+
+    <div class="page-content">
+        {{ .Content }}
+    </div>
+
+    {{- with .Lastmod }}
+    <footer class="page-footer">
+        <p class="page-lastmod">last updated {{ .Format "2006-01-02" }}</p>
+    </footer>
+    {{- end }}
+</article>
+
+{{ end }}

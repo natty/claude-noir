@@ -1,0 +1,645 @@
+/* ==========================================================================
+   CLAUDE NOIR THEME - STYLE CONFIGURATION
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS VARIABLES - Edit these to customize the theme
+   -------------------------------------------------------------------------- */
+:root {
+    /* Colors */
+    --color-background: #252d33;
+    --color-text: #C0C0C6;
+    --color-link: #C0C0C6;
+    --color-link-hover-bg: #384955;
+    --color-text-muted: #787881;
+    --color-tag: #6A7781;
+    --color-prefix: #71899B;
+
+    /* Typography */
+    --font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-weight-body: 400;
+    --font-weight-title: 600;
+    --font-size-base: 14px;
+    --font-size-small: 0.875rem;
+    --font-size-title: 18px;
+    --line-height: 1.6;
+
+    /* Spacing & Layout */
+    --spacing-unit: 1rem;
+    --content-max-width: 720px;
+    --header-padding: 2rem;
+}
+
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+.site-container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--header-padding);
+}
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+a {
+    color: var(--color-link);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--color-link);
+    text-decoration: none;
+    background-color: var(--color-link-hover-bg);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.site-branding {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.site-image {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.77) sepia(10%) hue-rotate(180deg);
+}
+
+.site-title {
+    margin: 0;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+}
+
+.site-title a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.site-title a:hover {
+    color: var(--color-text);
+    text-decoration: none;
+    background-color: var(--color-link-hover-bg);
+}
+
+.site-nav {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 1.5);
+}
+
+.site-nav a {
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   POST LIST (INDEX PAGE)
+   ========================================================================== */
+
+.post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-item {
+    margin-bottom: calc(var(--spacing-unit) * 1.7);
+}
+
+.post-title {
+    margin: 0 0 calc(var(--spacing-unit) * 0.25) 0;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+}
+
+.post-title a {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+.post-title a:hover {
+    color: var(--color-text);
+    text-decoration: none;
+    background-color: var(--color-link-hover-bg);
+}
+
+.post-title-prefix {
+    color: var(--color-prefix);
+}
+
+.draft-indicator {
+    color: var(--color-text-muted);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-small);
+}
+
+.post-meta,
+.post-meta-single {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-small);
+}
+
+.post-meta {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.post-meta-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.35em;
+    color: var(--color-text-muted);
+}
+
+.post-meta-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.post-date {
+    color: var(--color-text-muted);
+}
+
+.post-meta-separator {
+    margin: 0 0.5em;
+    color: var(--color-text-muted);
+}
+
+.post-preview {
+    margin: 0 0 calc(var(--spacing-unit) * 0.5) 0;
+}
+
+.read-more {
+    font-size: var(--font-size-small);
+}
+
+/* ==========================================================================
+   TAGS
+   ========================================================================== */
+
+.post-tags {
+    display: inline;
+}
+
+.post-tags-single {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.post-tag {
+    color: var(--color-tag);
+    text-decoration: none;
+}
+
+.post-tag:hover {
+    color: var(--color-tag);
+    text-decoration: none;
+    background-color: var(--color-link-hover-bg);
+}
+
+/* ==========================================================================
+   SINGLE POST PAGE
+   ========================================================================== */
+
+.post-header {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.post-title-single {
+    margin: 0;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    color: var(--color-text);
+}
+
+.post-stat {
+    color: var(--color-text-muted);
+}
+
+.post-content {
+    margin-top: calc(var(--spacing-unit) * 1);  /* stats/meta → content */
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+/* ==========================================================================
+   SINGLE PAGE (non-post pages like About)
+   ========================================================================== */
+
+.page-header {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.page-title-single {
+    margin: 0;
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    color: var(--color-text);
+}
+
+.page-content {
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.page-footer {
+    margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.page-lastmod {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   POST NAVIGATION (Previous/Next/Home)
+   ========================================================================== */
+
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: calc(var(--spacing-unit) * 1.75);
+    padding-top: calc(var(--spacing-unit) * 0.75);
+}
+
+.post-nav-prev,
+.post-nav-next {
+    max-width: 40%;
+}
+
+.post-nav-home {
+    text-align: center;
+}
+
+/* ==========================================================================
+   CODE BLOCKS
+   ========================================================================== */
+
+pre {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    font-size: 11px;
+    background-color: #2F3A42 !important;
+    border-radius: 4px;
+}
+
+pre code {
+    background-color: transparent !important;
+}
+
+/* ==========================================================================
+   IMAGES IN POST CONTENT
+   ========================================================================== */
+
+.post-content img {
+    display: block;
+    max-width: 85%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: calc(var(--spacing-unit) * 3);
+    padding-top: calc(var(--spacing-unit) * 2);
+}
+
+/* ==========================================================================
+   PAGE TITLES (All Posts, All Tags, etc.)
+   ========================================================================== */
+
+.page-title {
+    margin-bottom: calc(var(--spacing-unit) * 0.4);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+}
+
+.taxonomy-title {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+}
+
+.taxonomy-description {
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+}
+
+/* ==========================================================================
+   ALL POSTS PAGE (/posts/)
+   ========================================================================== */
+
+/* Flat style */
+.posts-list-flat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.posts-list-flat .posts-list-item {
+    margin-bottom: 0;
+}
+
+.posts-list-flat .posts-list-date {
+    margin-right: 0.5em;
+}
+
+/* Grouped by year style */
+.posts-by-year {
+    margin: 0;
+    padding: 0;
+    padding-left: 1em;
+}
+
+.year-group {
+    margin-bottom: calc(var(--spacing-unit) * 0.6);
+}
+
+.year-heading {
+    margin-bottom: calc(var(--spacing-unit) * 0.2);
+}
+
+.year-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1.5em;
+}
+
+.year-post-item {
+    margin-bottom: calc(var(--spacing-unit) * 0.25);
+}
+
+/* Grouped by month style */
+.month-group {
+    margin-bottom: calc(var(--spacing-unit) * 0.4);
+}
+
+.month-heading {
+    padding-left: 1em;
+    margin-bottom: calc(var(--spacing-unit) * 0.2);
+    color: var(--color-text-muted);
+}
+
+.month-posts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 2em;
+}
+
+.month-post-item {
+    margin-bottom: calc(var(--spacing-unit) * 0.25);
+}
+
+.month-post-item .posts-list-date {
+    margin-right: 0.5em;
+}
+
+/* Shared post list styles */
+.posts-list-link {
+    margin-right: 0.5em;
+}
+
+.posts-list-date {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+}
+
+/* ==========================================================================
+   ALL TAGS PAGE (/tags/)
+   ========================================================================== */
+
+.tags-list-all {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em;
+}
+
+.tag-item {
+    color: var(--color-tag);
+    text-decoration: none;
+}
+
+.tag-item:hover {
+    color: var(--color-tag);
+    text-decoration: none;
+    background-color: var(--color-link-hover-bg);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer {
+    margin-top: calc(var(--spacing-unit) * 4);
+    padding-top: calc(var(--spacing-unit) * 2);
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+.footer-above,
+.footer-below {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-left,
+.footer-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footer-text-row,
+.social-links-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copyright {
+    margin: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-text-muted);
+}
+
+.theme-credit {
+    color: var(--color-text-muted);
+}
+
+.theme-credit a {
+    color: var(--color-text-muted);
+}
+
+.theme-credit a:hover {
+    background-color: var(--color-link-hover-bg);
+}
+
+.social-links {
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: var(--color-text);
+    background-color: var(--color-link-hover-bg);
+}
+
+.social-link svg {
+    width: 14px;
+    height: 14px;
+}
+
+.separator {
+    margin: 0 0.5rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SERIES BOX
+   ========================================================================== */
+
+.series-box {
+    font-family: monospace;
+    font-size: var(--font-size-small);
+    line-height: 1.6;
+    margin: calc(var(--spacing-unit) * 1.5) 0;
+    padding: 1em;
+    border: 1px dashed var(--color-text-muted);
+}
+
+.series-title {
+    margin-bottom: 0.75em;
+    color: var(--color-text);
+}
+
+.series-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.series-item {
+    display: flex;
+    gap: 0.5em;
+}
+
+.series-prefix {
+    color: var(--color-prefix);
+}
+
+.series-num {
+    color: var(--color-text-muted);
+}
+
+.series-item-title {
+    color: var(--color-link);
+}
+
+.series-current .series-item-title {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.series-suffix {
+    color: var(--color-text-muted);
+    margin-left: auto;
+}
+
+/* ==========================================================================
+   404 ERROR PAGE
+   ========================================================================== */
+
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+}
+
+.error-code {
+    font-size: 4rem;
+    font-weight: var(--font-weight-title);
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+}
+
+.error-message {
+    font-size: var(--font-size-title);
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.error-links {
+    display: flex;
+    gap: 1.5rem;
+}

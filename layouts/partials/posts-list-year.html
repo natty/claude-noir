@@ -1,0 +1,15 @@
+<div class="posts-by-year">
+    {{- range (where .Site.RegularPages "Section" "posts").GroupByDate "2006" }}
+    <div class="year-group">
+        <div class="year-heading">{{ .Key }}</div>
+        <ul class="year-posts">
+            {{- range .Pages }}
+            <li class="year-post-item">
+                <a href="{{ .Permalink }}" class="posts-list-link">{{ .Title }}</a>{{ if .Draft }} <span class="draft-indicator">[draft]</span>{{ end }}
+                <span class="posts-list-date">{{ .Date.Format "01-02" }}</span>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+    {{- end }}
+</div>

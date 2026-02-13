@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<h2 class="taxonomy-title">posts tagged #{{ .Title | lower }}</h2>
+
+{{ with .Content }}
+<div class="taxonomy-description">
+    {{ . }}
+</div>
+{{ end }}
+
+{{ $paginator := .Paginate .Pages }}
+
+<ul class="post-list">
+    {{- range $paginator.Pages }}
+    {{- partial "post-item.html" . }}
+    {{- end }}
+</ul>
+
+{{ partial "pagination.html" $paginator }}
+
+{{ end }}

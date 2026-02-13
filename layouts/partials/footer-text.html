@@ -1,0 +1,5 @@
+{{- $hasCopyright := .Site.Copyright }}
+{{- $hasCredit := .Site.Params.showHugoThemeCredit }}
+{{- with .Site.Copyright }}<span class="copyright">{{ . }}</span>{{ end }}
+{{- if and $hasCopyright $hasCredit }} <span class="separator">|</span> {{ end }}
+{{- if $hasCredit }}<span class="theme-credit"><a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">hugo</a> & <a href="https://github.com/natty/claude-noir" target="_blank" rel="noopener noreferrer">claude noir</a></span>{{ end }}
