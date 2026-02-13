@@ -170,12 +170,9 @@ content/
 title: 'my post title'
 date: 2024-01-15
 draft: false
-tags:
-  - hugo
-  - tutorial
+tags: ['hugo', 'tutorial']
 description: 'optional description for seo'
-series:
-  - my series name
+series: ['my series name']
 ---
 
 your post content here...
@@ -186,26 +183,34 @@ your post content here...
 to group related posts into a series, add the same series name to each post's front matter:
 
 ```yaml
-series:
-  - learning hugo
+series: ['learning hugo']
 ```
 
 posts in a series display a navigation box showing all posts in the series with prev/next indicators.
 
 ### pages (non-posts)
 
-create standalone pages in `content/page/`:
+create standalone pages in `content/` with `type: "page"` in front matter:
 
 ```
 content/
-├── page/
-│   ├── about.md
-│   └── contact.md
+├── about.md
+├── contact.md
 └── posts/
     └── ...
 ```
 
-pages in `content/page/` use a simpler template with no date, tags, or prev/next navigation.
+page front matter:
+
+```yaml
+---
+title: 'about'
+type: 'page'
+lastmod: 2024-01-15
+---
+```
+
+pages with `type: "page"` use a simpler template with no date, tags, or prev/next navigation. the `lastmod` field is optional and displays "last updated" at the bottom of the page.
 
 ### tag descriptions
 
@@ -239,11 +244,11 @@ edit the css variables at the top of `static/css/style.css`:
 
 ### typography
 
-the theme uses system fonts by default:
+the theme uses system serif fonts by default:
 
 ```css
 :root {
-    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-size-base: 14px;
     --font-size-title: 18px;
 }
