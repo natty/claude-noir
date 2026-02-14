@@ -1,6 +1,7 @@
 # claude noir
+a minimal, dark hugo blog theme focused on clean typography, fast load times, and simplicity. no javascript required.
 
-a minimal, dark-themed hugo blog theme focused on clean typography, fast load times, and simplicity. no javascript required.
+![screenshot of all params enabled except site logo](images/tn.png)
 
 ## features
 
@@ -26,7 +27,8 @@ a minimal, dark-themed hugo blog theme focused on clean typography, fast load ti
    git submodule add https://github.com/yourusername/claude-noir.git themes/claude-noir
    ```
 
-2. update your `hugo.toml` to use the theme:
+2. update your `hug
+.toml` to use the theme:
    ```toml
    theme = 'claude-noir'
    ```
@@ -172,7 +174,6 @@ date: 2024-01-15
 draft: false
 tags: ['hugo', 'tutorial']
 description: 'optional description for seo'
-series: ['my series name']
 ---
 
 your post content here...
@@ -303,3 +304,9 @@ static/
 ## license
 
 MIT
+
+## screenshots with different params
+![screenshot of all params enabled except postPrefix](images/screenshot-noPostPrefix.png)
+![screenshot of minimal](images/screenshot-minimal.png)
+![screenshot of post stats with no icons](images/screenshot-with-stats-noicons.png)
+![screenshot with just icons](images/screenshot-with-icons.png)
