@@ -13,9 +13,9 @@ copyright = 'example site'
   siteImage = 'images/avatar.svg'
 
   showMetaIcons = true
-#  showPostStats = true
+  showPostStats = true
   showHugoThemeCredit = true
-#  postTitlePrefix = '>'
+  postTitlePrefix = '>'
 
   [[params.social]]
     name = 'bluesky'
